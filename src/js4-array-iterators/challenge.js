@@ -22,7 +22,7 @@
  */
 
 export const removeFalseValues = (booleanArr) => {
-  return;
+    return booleanArr.filter((bool) => bool);
 };
 
 /**
@@ -34,7 +34,7 @@ export const removeFalseValues = (booleanArr) => {
  */
 
 export const createPercentageList = (numbersArr) => {
-  return;
+    return numbersArr.map();
 };
 
 /**
@@ -47,7 +47,7 @@ export const createPercentageList = (numbersArr) => {
  */
 
 export const createListOfPoessessions = (possessionsArr, name) => {
-  return;
+    return;
 };
 
 /**
@@ -72,7 +72,7 @@ export const createListOfPoessessions = (possessionsArr, name) => {
  */
 
 export const convertStringToNumbersArray = (numberString) => {
-  return;
+    return;
 };
 
 /**
@@ -84,7 +84,7 @@ export const convertStringToNumbersArray = (numberString) => {
  */
 
 export const createOddEvenArray = (numberString) => {
-  return;
+    return;
 };
 
 /**
@@ -97,7 +97,7 @@ export const createOddEvenArray = (numberString) => {
  */
 
 export const filterBooksBySearch = (booksArr, searchTerm) => {
-  return;
+    return;
 };
 
 /**
@@ -117,16 +117,16 @@ export const filterBooksBySearch = (booksArr, searchTerm) => {
  */
 
 export const formatStringArray = (stringArr) => {
-  const cleanedArr = stringArr.forEach((string) => {
-    const cleanStr = string.trim().toLowerCase();
-    return cleanStr;
-  });
+    const cleanedArr = stringArr.forEach((string) => {
+        const cleanStr = string.trim().toLowerCase();
+        return cleanStr;
+    });
 
-  // console.log(???)
+    // console.log(???)
 
-  const joinedString = cleanedArr.join("+");
+    const joinedString = cleanedArr.join("+");
 
-  return joinedString;
+    return joinedString;
 };
 
 /**
@@ -143,7 +143,7 @@ export const formatStringArray = (stringArr) => {
  */
 
 export const formatString = (string) => {
-  return;
+    return;
 };
 
 /**
@@ -170,5 +170,5 @@ export const formatString = (string) => {
  */
 
 export const fizzBuzz = (mixedArray) => {
-  return;
+    return;
 };

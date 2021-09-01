@@ -22,7 +22,7 @@
  */
 
 export const createRecipeString = (ingredientsArr) => {
-  return;
+    return ingredientsArr.join("+");
 };
 
 /**
@@ -33,7 +33,7 @@ export const createRecipeString = (ingredientsArr) => {
  */
 
 export const getFirstAndLastItems = (itemsArr) => {
-  return;
+    return new Array(itemsArr[0], itemsArr[itemsArr.length - 1]);
 };
 
 /**
@@ -44,7 +44,7 @@ export const getFirstAndLastItems = (itemsArr) => {
  */
 
 export const totalScores = (scoreArr) => {
-  return;
+    return scoreArr.reduce((acc, val) => (acc += val), 0);
 };
 
 /**
@@ -60,7 +60,7 @@ export const totalScores = (scoreArr) => {
  */
 
 export const totalRange = (rangeMax) => {
-  return;
+    return (rangeMax * (rangeMax + 1)) / 2;
 };
 
 /**
@@ -71,7 +71,9 @@ export const totalRange = (rangeMax) => {
  */
 
 export const moveFirstAndLastItems = (itemsArr) => {
-  return;
+    return [itemsArr[itemsArr.length - 1]].concat(
+        itemsArr.slice(0, itemsArr.length - 1)
+    );
 };
 
 /**
@@ -89,7 +91,8 @@ export const moveFirstAndLastItems = (itemsArr) => {
  */
 
 export const removeEvenNumbers = (numberArr) => {
-  return;
+    let newArray = [...numberArr].filter((n) => n % 2 !== 0);
+    return newArray;
 };
 
 /**
@@ -105,7 +108,9 @@ export const removeEvenNumbers = (numberArr) => {
  */
 
 export const generateAverage = (numberArr) => {
-  return;
+    if (numberArr.length === 0) return 0;
+    let total = numberArr.reduce((acc, val) => (acc += val), 0);
+    return Math.round(total / numberArr.length);
 };
 
 /**
@@ -116,7 +121,7 @@ export const generateAverage = (numberArr) => {
  */
 
 export const reverseOrder = (toReverseArr) => {
-  return;
+    return [...toReverseArr].reverse();
 };
 
 /**
@@ -138,7 +143,15 @@ export const reverseOrder = (toReverseArr) => {
  */
 
 export const generateHighscores = (playersArr, scoresArr) => {
-  return;
+    if (playersArr.length !== scoresArr.length) return "invalid inputs";
+    if (playersArr.length === 0 || scoresArr.length === 0)
+        return "invalid inputs";
+
+    let newArray = [];
+    for (let i = 0; i < playersArr.length; i++) {
+        newArray[i] = `P:${i + 1} ${playersArr[i]} scored ${scoresArr[i]}`;
+    }
+    return newArray;
 };
 
 /**
@@ -168,5 +181,14 @@ export const generateHighscores = (playersArr, scoresArr) => {
 // };
 
 export const encryptString = (toEncrypt) => {
-  return;
+    let n = 3;
+    let array = Array(n)
+        .fill(null)
+        .map(() => []);
+    let letters = [...toEncrypt];
+
+    for (let i = 0; i < letters.length; i++) {
+        array[i % n].push(letters[i]);
+    }
+    return array.flat().join("");
 };
