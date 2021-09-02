@@ -22,7 +22,7 @@
  */
 
 export const totalScoresArr = (scoresArr) => {
-  return scoresArr.reduce((val, acc) => acc + val, 0);
+    return scoresArr.reduce((val, acc) => acc + val, 0);
 };
 
 /**
@@ -35,7 +35,7 @@ export const totalScoresArr = (scoresArr) => {
  */
 
 export const reverseString = (toReverse) => {
-  return [...toReverse].reverse().join("");
+    return [...toReverse].reverse().join("");
 };
 
 /**
@@ -48,7 +48,7 @@ export const reverseString = (toReverse) => {
  */
 
 export const sortCharactersAlphabetically = (charcterArr) => {
-  return;
+    return charcterArr.map((x) => x.toLowerCase()).sort();
 };
 
 /**
@@ -63,7 +63,9 @@ export const sortCharactersAlphabetically = (charcterArr) => {
  */
 
 export const sortNumbersHighToLow = (numberArr) => {
-  return;
+    let sortedNumbers = [...numberArr];
+    sortedNumbers.sort((x, y) => y - x);
+    return sortedNumbers;
 };
 
 /**
@@ -81,20 +83,28 @@ export const sortNumbersHighToLow = (numberArr) => {
  */
 
 export const checkItemInstock = (toCheck) => {
-  const stockList = [
-    "apple",
-    "banana",
-    "orange",
-    "coconut",
-    "strawberry",
-    "lime",
-    "grapefruit",
-    "lemon",
-    "kumquat",
-    "blueberry",
-    "melon",
-  ];
-  return;
+    const stockList = [
+        "apple",
+        "banana",
+        "orange",
+        "coconut",
+        "strawberry",
+        "lime",
+        "grapefruit",
+        "lemon",
+        "kumquat",
+        "blueberry",
+        "melon",
+    ];
+
+    const inStock = (index) =>
+        `${toCheck} is instock, it is on aisle ${index}.`;
+    const outOfStock = () => `Sorry ${toCheck} is not instock.`;
+
+    for (let i = 0; i < stockList.length; i++) {
+        if (stockList[i] === toCheck) return inStock(i);
+    }
+    return outOfStock();
 };
 
 /**
@@ -108,7 +118,8 @@ export const checkItemInstock = (toCheck) => {
  */
 
 export const checkPrimaryColours = (coloursArr) => {
-  return;
+    const primaryColours = ["red", "blue", "yellow"];
+    return coloursArr.every((s) => primaryColours.includes(s));
 };
 
 /**
@@ -125,7 +136,8 @@ export const checkPrimaryColours = (coloursArr) => {
  */
 
 export const checkStringPalindrome = (stringOne) => {
-  return;
+    let stringTwo = [...stringOne].reverse().join("");
+    return stringOne === stringTwo;
 };
 
 /**
@@ -139,7 +151,7 @@ export const checkStringPalindrome = (stringOne) => {
  */
 
 export const totalNestedScoresArr = (scoresArr) => {
-  return;
+    return scoresArr.map((array) => array.reduce((acc, val) => acc + val, 0));
 };
 
 /**
@@ -172,5 +184,14 @@ export const totalNestedScoresArr = (scoresArr) => {
  */
 
 export const encryptString = (toEncrypt) => {
-  return;
+    return [...toEncrypt]
+        .reduce(
+            (acc, c, i) => {
+                acc[i % 3].push(c);
+                return acc;
+            },
+            [[], [], []]
+        )
+        .flat()
+        .join("");
 };
