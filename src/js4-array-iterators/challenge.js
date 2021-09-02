@@ -34,7 +34,7 @@ export const removeFalseValues = (booleanArr) => {
  */
 
 export const createPercentageList = (numbersArr) => {
-    return numbersArr.map();
+    return numbersArr.map((n) => n * 100 + "%");
 };
 
 /**
@@ -47,7 +47,7 @@ export const createPercentageList = (numbersArr) => {
  */
 
 export const createListOfPoessessions = (possessionsArr, name) => {
-    return;
+    return possessionsArr.map((pos) => name + " " + pos);
 };
 
 /**
@@ -72,7 +72,7 @@ export const createListOfPoessessions = (possessionsArr, name) => {
  */
 
 export const convertStringToNumbersArray = (numberString) => {
-    return;
+    return numberString.split("+").map((x) => +x);
 };
 
 /**
@@ -84,7 +84,7 @@ export const convertStringToNumbersArray = (numberString) => {
  */
 
 export const createOddEvenArray = (numberString) => {
-    return;
+    return numberString.split("+").map((x) => (x % 2 ? "odd" : "even"));
 };
 
 /**
@@ -97,7 +97,7 @@ export const createOddEvenArray = (numberString) => {
  */
 
 export const filterBooksBySearch = (booksArr, searchTerm) => {
-    return;
+    return booksArr.filter((title) => title.includes(searchTerm));
 };
 
 /**
@@ -117,7 +117,7 @@ export const filterBooksBySearch = (booksArr, searchTerm) => {
  */
 
 export const formatStringArray = (stringArr) => {
-    const cleanedArr = stringArr.forEach((string) => {
+    const cleanedArr = stringArr.map((string) => {
         const cleanStr = string.trim().toLowerCase();
         return cleanStr;
     });
@@ -143,7 +143,8 @@ export const formatStringArray = (stringArr) => {
  */
 
 export const formatString = (string) => {
-    return;
+    let letters = [...string].filter((c) => /[a-zA-Z]/.test(c));
+    return letters.map((c, i) => (i % 2 ? c.toLowerCase() : c.toUpperCase()));
 };
 
 /**
@@ -170,5 +171,11 @@ export const formatString = (string) => {
  */
 
 export const fizzBuzz = (mixedArray) => {
-    return;
+    let filteredArray = mixedArray.filter((x) => !isNaN(x) && +x > 0);
+    return filteredArray.map((x) => {
+        let output = "";
+        output += x % 3 === 0 ? "Fizz" : "";
+        output += x % 5 === 0 ? "Buzz" : "";
+        return output === "" ? "" + x : output;
+    });
 };
