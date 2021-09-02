@@ -22,7 +22,7 @@
  */
 
 export const totalScoresArr = (scoresArr) => {
-  return;
+  return scoresArr.reduce((val, acc) => acc + val, 0);
 };
 
 /**
@@ -35,7 +35,7 @@ export const totalScoresArr = (scoresArr) => {
  */
 
 export const reverseString = (toReverse) => {
-  return;
+  return [...toReverse].reverse().join("");
 };
 
 /**
